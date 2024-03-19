@@ -1,0 +1,14 @@
+<div class="container signup-form">
+    <h2>Add Product</h2>
+    <form action="/clothing-items/add" method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="brand" placeholder="Brand" required>
+        <input type="text" name="category" placeholder="Category" required>
+        <input type="number" step="0.01" name="price" placeholder="Price" required>
+        <input type="text" name="size" placeholder="Size" required>
+        <input type="text" name="color" placeholder="Color" required>
+        <input type="file" name="image" placeholder="Image" required>
+        <input type="submit" value="Add">
+    </form>
+    <center class="error" th:text="${error}"></center>
+</div>

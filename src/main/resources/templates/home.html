@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+
+    <header th:insert="header">
+    </header>
+
+
+    <main>
+
+        <section id="featured-products">
+            <div class="container">
+                <h2>Products</h2>
+                <div class="product-grid">
+                    <div th:each="product: ${products}" class="product">
+                        <img th:src="${product.get('image')}" alt="Product">
+                        <div class="product-details">
+                            <h3 th:text="${product.get('name')}">Product Name</h3>
+                            <p th:text="@{Price: ${productPrice}(productPrice=${product.get('price')})}"></p>
+
+                            <div class="actions">
+                                <a th:href="@{/catalog/{productName}(productName=${product.get('name')})}"
+                                    class="btn action">View
+                                    Details</a>
+                                <a th:href="@{/cart-item/add/{productName}(productName=${product.get('name')})}"
+                                    class="btn purchase action">
+                                    Add to Cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Add more products here -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <aside id="cart" th:insert="cart"></aside>
+
+    <footer th:insert="footer">
+    </footer>
+
+</body>
+
+</html>

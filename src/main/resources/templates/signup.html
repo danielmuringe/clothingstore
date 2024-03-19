@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <title>Sign Up</title>
+</head>
+
+<body>
+
+    <main>
+
+        <div class="signup-form">
+
+            <h2>Sign Up</h2>
+            <form action="/signup" method="post">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="submit" value="Sign Up">
+            </form>
+            <center class="error" th:text="${error}"></center>
+
+            <center class="diverge"><a href='/login'>Already a user? Login</a></center>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Clothing Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

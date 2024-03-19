@@ -1,0 +1,34 @@
+<div id="cart-items">
+    <div class="container">
+        <h2>Your Shopping Cart</h2>
+        <div class="cart-grid">
+
+            <div th:each="cartItem: ${cartItems}" class="cart-item">
+                <img th:src="${cartItem.get('image')}" class="cart-image" alt="Product">
+                <div class="item-details">
+                    <h3 th:text="${cartItem.get('name')}">Product
+                    </h3>
+                    <p th:text="@{Price: ${price}(price=${cartItem.get('price')})}">
+                    </p>
+                    <p th:text="@{Quantity: {quantity}(quantity=${cartItem.get('quantity')})}">
+                    </p>
+                    <p th:text="@{Subtotal: ${total}(total=${cartItem.get('total')})}">
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </section>
+
+    <section id="checkout">
+        <div class="container">
+            <h3 th:text="@{Grand Total: ${cartItemsTotal}(cartItemsTotal=${cartItemsTotal})}">
+            </h3>
+            <a href="/purchase" class="btn checkout-btn purchase" id="purchase">Complete Purchase</a>
+        </div>
+    </section>
+
+    <script src="js/cart.js" defer></script>
+
+</div>

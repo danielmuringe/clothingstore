@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${product.get('name')}"></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/catalog.css">
+</head>
+
+<body>
+
+    <header th:insert="header">
+    </header>
+
+    <main class="catalog">
+
+        <img th:src="${product.get('image')}" alt="Product">
+
+        <div class="product-details">
+
+
+            <h3 th:text="@{Price: ${price}(price=${product.get('price')})}" class="price"></h3>
+            <h3 th:text="@{Brand: {brand}(brand=${product.get('brand')})}" class="brand"></h3>
+            <h3 th:text="@{Size: {size}(size=${product.get('size')})}" class="size"></h3>
+            <h3 th:text="@{Color: {color}(color=${product.get('color')})}" class="color"></h3>
+
+            <a th:href="@{/cart-item/add/{productName}(productName=${product.get('name')})}" class="btn purchase">
+                Add to Cart</a>
+        </div>
+
+    </main>
+
+
+    <aside id="cart" th:insert="cart"></aside>
+
+    <footer th:insert="footer"></footer>
+
+</body>
+
+</html>

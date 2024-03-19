@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/purchases.css">
+</head>
+
+<body>
+
+    <header th:insert="header">
+    </header>
+
+
+    <main>
+
+        <section id="featured-products">
+            <div class="container">
+                <h2>Purchases</h2>
+
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Name</th>
+                            <th>Price ($)</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="purchase: ${purchases}">
+                            <td th:text="@{{purchaseTime}(purchaseTime=${purchase.get('purchase_date')})}">
+                                Timestamp</td>
+                            <td th:text="${purchase.get('name')}">Name</td>
+                            <td th:text="@{{purchasePrice}(purchasePrice=${purchase.get('price')})}">Price
+                            </td>
+                            <td th:text="@{{purchaseQuantity}(purchaseQuantity=${purchase.get('quantity')})}">
+                                Quantity</td>
+                            <td th:text="@{{purchaseTotal}(purchaseTotal=${purchase.get('total')})}">Total
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer th:insert="footer">
+    </footer>
+
+</body>
+
+</html>

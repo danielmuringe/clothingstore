@@ -1,0 +1,18 @@
+.catalog{
+    width: 500px;
+    margin: 2em auto;
+}
+
+.catalog img {
+    width: 500px;
+    height: 500px;
+}
+
+.action{
+    margin: 1em;
+}
+
+.product-details{
+    text-align: left;
+    padding-left: 2em;
+}

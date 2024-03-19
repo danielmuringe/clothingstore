@@ -1,0 +1,11 @@
+<div class="container">
+    <h1>Clothing Store</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li th="${isAdmin}"><a href="/purchases">My Purchases</a></li>
+            <li th:if="${isAdmin}"><a href="/clothing-items">Clothing Items</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+</div>
